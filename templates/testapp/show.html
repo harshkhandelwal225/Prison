@@ -1,0 +1,6 @@
+{% extends "testapp/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+      <h1>{{a.name}}</h1>
+      <img src="{{a.image.url}}">
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends "testapp/base.html" %}
+{%block content%}
+<table class="table table-striped table-hover table-bordered" style="table-layout:fixed; overflow-y:none;"  >
+  <thead class='bg-coral'>
+    <tr>
+      <th scope="col" style="width:250px">Name</th>
+      <th scope="col" style="width:250px">Address</th>
+      <th scope="col" style="width:250px">Aadhar Number</th>
+      <th scope="col" style="width:250px">Crime</th>
+      <th scope="col" style="width:250px">Punishment</th>
+      <th scope="col" style="width:250px">Date Of Entry</th>
+      <th scope="col" style="width:250px">Image</th>
+      <th scope="col" style="width:250px">Update</th>
+      </tr>
+  </thead>
+  <tbody>
+    {% for i in a %}
+    <tr>
+      <td style='word-wrap:break-word'>{{i.name}}</td>
+      <td style='word-wrap:break-word'>{{i.address}}</td>
+      <td style='word-wrap:break-word'>{{i.prisoner_aadhar_no}}</td>
+      <td style='word-wrap:break-word'>{{i.crime}}</td>
+      <td style='word-wrap:break-word'>{{i.punishment}}</td>
+      <td style='word-wrap:break-word'>{{i.date_of_entry}}</td>
+      <td style='word-wrap:break-word'><a href="{{i.image.url}}">Show Image</a></td>
+      <td style='word-wrap:break-word'><a href="{% url 'prisoner-update' i.pk%}">Update</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{%endblock content%}
